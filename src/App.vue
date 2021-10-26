@@ -16,14 +16,10 @@ export default {
     };
   },
   created() {
-    axios.get("https://jsonplaceholder.typicode.com/users").then((res) => {
+    axios.get("https://fukabeakihiro.com/demoEC/json.php").then((res) => {
       this.products = res.data;
-      console.log(res.data);
+      console.log(res);
     });
-    // axios.get("https://fukabeakihiro.com/demoEC/json.php").then((res) => {
-    //   this.products = res;
-    //   console.log(res);
-    // });
   },
 };
 </script>
