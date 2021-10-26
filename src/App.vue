@@ -1,17 +1,29 @@
 <template>
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+    <ul v-for="product in products" :key="product.id">
+      <li>{{ product.name }}</li>
+    </ul>
   </div>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
-
+import axios from "axios";
 export default {
-  name: "App",
-  components: {
-    HelloWorld,
+  data() {
+    return {
+      products: [],
+    };
+  },
+  created() {
+    axios.get("https://jsonplaceholder.typicode.com/users").then((res) => {
+      this.products = res.data;
+      console.log(res.data);
+    });
+    // axios.get("https://fukabeakihiro.com/demoEC/json.php").then((res) => {
+    //   this.products = res;
+    //   console.log(res);
+    // });
   },
 };
 </script>
